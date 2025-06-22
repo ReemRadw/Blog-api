@@ -18,7 +18,7 @@ A simple yet robust Blog API built with NestJS and TypeScript, featuring CRUD op
   - View all registered users (excluding passwords)
   - Admins can update or delete any post
 - **Database Agnostic**
-  - Supports PostgreSQL, MongoDB, etc. via TypeORM or Mongoose
+  - Supports mysql via prisma
 - **Seed Data**
   - Seed initial data for development
 
@@ -28,8 +28,8 @@ A simple yet robust Blog API built with NestJS and TypeScript, featuring CRUD op
 
 - **Framework:** NestJS
 - **Language:** TypeScript
-- **Database:** PostgreSQL, MongoDB, or your choice
-- **ORM/ODM:** TypeORM or Mongoose
+- **Database:** mysql
+- **ORM/ODM:** prisma
 - **Authentication:** JWT
 - **Environment Config:** dotenv
 
@@ -39,16 +39,14 @@ A simple yet robust Blog API built with NestJS and TypeScript, featuring CRUD op
 
 - Node.js >= 16.x
 - npm or Yarn
-- Database server (PostgreSQL, MongoDB, etc.)
-
 ---
 
 ## Getting Started
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/blog-api-nestjs.git
-   cd blog-api-nestjs
+   git clone https://github.com/ReemRadw/Blog-api.git
+   cd Blog-api
    ```
 
 2. **Install dependencies**
@@ -65,9 +63,9 @@ A simple yet robust Blog API built with NestJS and TypeScript, featuring CRUD op
      ```
    - Required variables:
      ```dotenv
-     DATABASE_URL=your_database_connection_string
-     JWT_SECRET=your_jwt_secret
-     JWT_EXPIRES_IN=3600s
+     DATABASE_URL=mysql://root@localhost:3306/blog_db
+     JWT_SECRET=supersecretkey123
+     JWT_EXPIRES_IN=1h
      ```
 
 4. **Database migrations & seeding**
@@ -108,12 +106,12 @@ A simple yet robust Blog API built with NestJS and TypeScript, featuring CRUD op
 # Server
 PORT=3000
 
-# Database (TypeORM example)
-DATABASE_URL=postgres://user:password@localhost:5432/blogdb
+# Database (prisma )
+DATABASE_URL=mysql://root@localhost:3000/blog_db
 
 # JWT
-JWT_SECRET=supersecretkey
-JWT_EXPIRES_IN=3600s
+JWT_SECRET=supersecretkey123
+JWT_EXPIRES_IN=1h
 ```  
 
 ---
@@ -147,17 +145,8 @@ JWT_EXPIRES_IN=3600s
 
 ## Postman Collection
 
-Import the provided `postman_collection.json` file to test all endpoints with predefined requests and environments.
+Import the provided `Blog-api.postman_collection.json` file in postman folder to test all endpoints with predefined requests and environments.
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Contact & Support
-
-If you encounter any issues or have questions, please open an issue in the repository or reach out to the project maintainer.
 
